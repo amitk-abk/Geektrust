@@ -1,0 +1,29 @@
+Who is the ruler of Southeros?
+
+Allies of Ruler?
+
+Input Messages to kingdoms from King Shan:
+Air,"oaaawaala"
+Land,"a1d22n333a4444p"
+Ice,"zmzmzmzaztzozh"
+
+Who is the ruler of Southeros?
+
+Allies of Ruler?
+
+clear
+
+Allies of King Shan?
+
+Input Messages to kingdoms from King Shan:
+Air, "Let's swing the sword together"
+Land, "Die or play the tame of thrones"
+Ice, "Ahoy! Fight for me with men and money"
+Water, "Summer is coming"
+Fire, "Drag on Martin!"
+
+Who is the ruler of Southeros?
+
+Allies of King Shan?
+
+q
