@@ -1,0 +1,27 @@
+It's a tie!!
+
+TeamOnes
+First - 3*(3)
+Second - 3*(3)
+
+TeamOnes1
+First - 3*(3)
+Second - 3*(3)
+
+TeamOnes innings:
+0.1 First scores 1 run 
+0.2 Second scores 1 run 
+0.3 First scores 1 run 
+0.4 Second scores 1 run 
+0.5 First scores 1 run 
+0.6 Second scores 1 run 
+
+
+TeamOnes1 innings:
+0.1 First scores 1 run 
+0.2 Second scores 1 run 
+0.3 First scores 1 run 
+0.4 Second scores 1 run 
+0.5 First scores 1 run 
+0.6 Second scores 1 run It is a tie!!
+

@@ -1,0 +1,22 @@
+TeamSixes won with 4 balls remaining
+
+TeamOnes
+First - 3*(3)
+Second - 3*(3)
+
+TeamSixes
+First - 12*(2)
+Second - 0*(0)
+
+TeamOnes innings:
+0.1 First scores 1 run 
+0.2 Second scores 1 run 
+0.3 First scores 1 run 
+0.4 Second scores 1 run 
+0.5 First scores 1 run 
+0.6 Second scores 1 run 
+
+
+TeamSixes innings:
+0.1 First scores 6 run 
+0.2 First scores 6 run TeamSixes wins!

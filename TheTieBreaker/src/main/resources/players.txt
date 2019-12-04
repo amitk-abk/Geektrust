@@ -1,0 +1,13 @@
+
+
+Lengaburu, Kirat Boli, 5, 10, 25, 10, 25, 1, 14, 10
+Lengaburu, N.S Nodhi, 5, 15, 15, 10, 20, 1, 19, 15
+
+
+
+Enchai, DB Vellyers, 5, 10, 25, 10, 25, 1, 14, 10
+Enchai, H Mamla, 10, 15, 15, 10, 20, 1, 19, 10
+
+
+
+q
