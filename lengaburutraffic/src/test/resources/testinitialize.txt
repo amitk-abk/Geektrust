@@ -1,0 +1,6 @@
+Orbit, Orbit1, 18, 20, Silk Dorb, Hallitharam
+Orbit, Orbit2, 20, 10, Silk Dorb, Hallitharam
+Vehicle, Bike, 10, 1
+Vehicle, TukTuk, 13, 2
+Vehicle, Car, 20, 3
+--end--
