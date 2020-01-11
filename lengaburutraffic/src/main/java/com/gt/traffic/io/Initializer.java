@@ -8,7 +8,6 @@ import com.gt.traffic.vehicle.Tuktuk;
 import com.gt.traffic.vehicle.Vehicle;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -41,11 +40,11 @@ public class Initializer {
     private void initialize() {
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(
-                        new FileInputStream(file)))) {
+                        getClass().getResourceAsStream(file)))) {
 
             String input = reader.readLine();
 
-            while (input.startsWith("Orbit")){
+            while (input.startsWith("Orbit")) {
                 String[] orbitDetails = input.split(Pattern.quote(","));
                 String orbitName = orbitDetails[1].trim();
                 float orbitLengthInMM = Float.parseFloat(orbitDetails[2].trim());
@@ -74,9 +73,12 @@ public class Initializer {
         float hourlySpeed = Float.valueOf(vehicleDetails[2].trim());
         float minutesToCrossCrater = Float.valueOf(vehicleDetails[3].trim());
         switch (vehicleName) {
-            case "Bike": return new Bike(vehicleName, hourlySpeed, minutesToCrossCrater);
-            case "TukTuk": return new Tuktuk(vehicleName, hourlySpeed, minutesToCrossCrater);
-            case "Car": return new SuperCar(vehicleName, hourlySpeed, minutesToCrossCrater);
+            case "Bike":
+                return new Bike(vehicleName, hourlySpeed, minutesToCrossCrater);
+            case "TukTuk":
+                return new Tuktuk(vehicleName, hourlySpeed, minutesToCrossCrater);
+            case "Car":
+                return new SuperCar(vehicleName, hourlySpeed, minutesToCrossCrater);
         }
         throw new RuntimeException("Could not initialize vehicles from initialization file.");
     }
