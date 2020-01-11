@@ -14,7 +14,7 @@ public class TourOfLengaburuTest {
         String inputFileName = "./src/test/resources/input.txt";
         String testOutputFileName = "./src/test/resources/testoutput.txt";
         String expectedOutputFileName = "./src/test/resources/expectedoutput.txt";
-        String initializationFile = "./src/test/resources/testinitialize.txt";
+        String initializationFile = "/testinitialize.txt";
 
         File testOutputFile = new File(testOutputFileName);
         if (testOutputFile.exists()) {
@@ -39,6 +39,4 @@ public class TourOfLengaburuTest {
         }
         return result;
     }
-
-
 }
