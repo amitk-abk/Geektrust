@@ -6,7 +6,7 @@ import com.gt.family.family.Person;
 public class FamilyTreeProvider {
 
     public static Person getFamilyTree() {
-        FamilyTreeCreator creator = new FamilyTreeCreator("/family.txt");
+        FamilyTreeCreator creator = new FamilyTreeCreator("/testfamily.txt");
         return creator.familyTree();
     }
 }
