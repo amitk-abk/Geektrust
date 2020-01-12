@@ -24,22 +24,9 @@ public class Person {
         return this.gender;
     }
 
-    public Optional<Person> getWife() {
-        if (family == null)
-            return Optional.empty();
-        return Optional.ofNullable(family.getWife());
-    }
-
-    public Optional<Person> getHusband() {
-        if (family == null)
-            return Optional.empty();
-        return Optional.ofNullable(family.getHusband());
-    }
-
     public void setFamily(Family family) {
         this.family = family;
     }
-
 
     public void setFather(Person father) {
         this.father = father;
@@ -61,7 +48,19 @@ public class Person {
         return Optional.ofNullable(this.family);
     }
 
-    public List<Person> getChildren() {
+    public Optional<Person> getWife() {
+        if (family == null)
+            return Optional.empty();
+        return Optional.ofNullable(family.getWife());
+    }
+
+    public Optional<Person> getHusband() {
+        if (family == null)
+            return Optional.empty();
+        return Optional.ofNullable(family.getHusband());
+    }
+
+    List<Person> getChildren() {
         return family.getChildren();
     }
 }
