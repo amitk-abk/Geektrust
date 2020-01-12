@@ -17,8 +17,8 @@ public class FamilyTree {
         familyHead = tree.familyTree();
     }
 
-    public static Person findPerson(Person head, String personName) {
-        Optional<Family> family = head.getFamily();
+    public static Person findPerson(Person personOfInterest, String personName) {
+        Optional<Family> family = personOfInterest.getFamily();
         if (!family.isPresent())
             return null;
 
