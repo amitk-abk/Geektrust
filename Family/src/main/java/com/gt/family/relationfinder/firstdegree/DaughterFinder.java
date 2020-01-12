@@ -9,27 +9,12 @@ import java.util.function.Predicate;
 import static com.gt.family.family.Gender.FEMALE;
 
 public class DaughterFinder extends FirstDegreeRelationshipsFinder {
-    public DaughterFinder() {
-        super();
-    }
 
-    @Override
-    public String getRelationShip(Person person) {
-
-        Optional<Family> personFamily = getFamilyFrom(person);
-        if (!personFamily.isPresent()) {
-            return "NONE";
-        }
-
-        Predicate<Person> predicate = person1 -> person1.getGender().equals(FEMALE);
-        Family family = personFamily.get();
-
-        return relationshipFrom(predicate, family);
-    }
-
-
-    @Override
-    protected Optional<Family> getFamilyFrom(Person person) {
+    Optional<Family> familyFrom(Person person) {
         return person.getFamily();
+    }
+
+    Predicate<Person> isRequiredPerson(Person person) {
+        return person1 -> person1.getGender().equals(FEMALE);
     }
 }
