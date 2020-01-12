@@ -10,26 +10,11 @@ import static com.gt.family.family.Gender.MALE;
 
 public class SonFinder extends FirstDegreeRelationshipsFinder {
 
-    public SonFinder() {
-        super();
-    }
-
-    @Override
-    public String getRelationShip(Person person) {
-
-        Optional<Family> personFamily = getFamilyFrom(person);
-        if (!personFamily.isPresent()) {
-            return "NONE";
-        }
-
-        Predicate<Person> predicate = person1 -> person1.getGender().equals(MALE);
-        Family family = personFamily.get();
-
-        return relationshipFrom(predicate, family);
-    }
-
-    @Override
-    protected Optional<Family> getFamilyFrom(Person person) {
+    Optional<Family> familyFrom(Person person) {
         return person.getFamily();
+    }
+
+    Predicate<Person> isRequiredPerson(Person person) {
+        return person1 -> person1.getGender().equals(MALE);
     }
 }
