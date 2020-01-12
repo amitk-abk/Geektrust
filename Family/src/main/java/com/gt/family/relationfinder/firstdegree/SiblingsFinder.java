@@ -8,24 +8,11 @@ import java.util.function.Predicate;
 
 public class SiblingsFinder extends FirstDegreeRelationshipsFinder {
 
-    @Override
-    public String getRelationShip(Person person) {
-
-        Optional<Family> motherFamily = getFamilyFrom(person);
-        if (!motherFamily.isPresent()) {
-            return "NONE";
-        }
-
-        Predicate<Person> predicate = kid -> !kid.getName().equals(person.getName());
-        Family family = motherFamily.get();
-        if (family.getChildren().size() <= 0)
-            return "NONE";
-
-        return relationshipFrom(predicate, family);
+    Optional<Family> familyFrom(Person person) {
+        return person.getMother().getFamily();
     }
 
-    @Override
-    protected Optional<Family> getFamilyFrom(Person person) {
-        return person.getMother().getFamily();
+    Predicate<Person> isRequiredPerson(Person person) {
+        return kid -> !kid.getName().equals(person.getName());
     }
 }
