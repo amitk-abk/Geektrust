@@ -10,13 +10,25 @@ import java.util.stream.Collectors;
 
 public abstract class FirstDegreeRelationshipsFinder implements RelationshipsFinder {
 
-    protected abstract Optional<Family> getFamilyFrom(Person person);
+    abstract Predicate<Person> isRequiredPerson(Person person);
 
-    String relationshipFrom(Predicate<Person> predicate, Family family) {
+    abstract Optional<Family> familyFrom(Person person);
+
+    @Override
+    public String getRelationShip(Person person) {
+        Optional<Family> family = familyFrom(person);
+        if (!family.isPresent())
+            return "NONE";
+
+        return relationshipFrom(isRequiredPerson(person), family.get());
+    }
+
+
+    private String relationshipFrom(Predicate<Person> requiredPerson, Family family) {
         String result = family
                 .getChildren()
                 .stream()
-                .filter(predicate)
+                .filter(requiredPerson)
                 .map(Person::getName)
                 .collect(Collectors.joining(" "));
 
