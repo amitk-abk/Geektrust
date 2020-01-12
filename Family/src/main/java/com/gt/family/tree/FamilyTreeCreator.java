@@ -6,7 +6,6 @@ import com.gt.family.family.NullPerson;
 import com.gt.family.family.Person;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Optional;
@@ -23,8 +22,12 @@ public class FamilyTreeCreator {
         this.filePath = filePath;
     }
 
+    private static Person person(String personName, Gender gender) {
+        return new Person(personName, gender);
+    }
+
     public Person familyTree() {
-        Person headFamily = new Person("Head", MALE);
+        Person familyHead = new NullPerson("Head", MALE);
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(getClass().getResourceAsStream(filePath)))) {
 
@@ -35,7 +38,7 @@ public class FamilyTreeCreator {
                     String people[] = input.split(Pattern.quote("-"));
                     String king = people[0].split(Pattern.quote(":"))[0].trim();
                     String queen = people[1].split(Pattern.quote(":"))[0].trim();
-                    headFamily = of(king, queen);
+                    familyHead = of(king, queen);
                     input = reader.readLine().trim();
                 }
 
@@ -49,14 +52,14 @@ public class FamilyTreeCreator {
                         Person first = personFrom(spouses[0]);
                         Person second = personFrom(spouses[1]);
 
-                        addTo(headFamily, mother, first, second);
+                        addTo(familyHead, mother, first, second);
 
                     } else {
                         String mother = input.split(Pattern.quote(","))[0].trim();
                         String person = input.split(Pattern.quote(","))[1].trim();
 
                         Person p = personFrom(person);
-                        addTo(headFamily, mother, p);
+                        addTo(familyHead, mother, p);
                     }
                 }
                 input = reader.readLine().trim();
@@ -65,7 +68,7 @@ public class FamilyTreeCreator {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return headFamily;
+        return familyHead;
     }
 
     private Person of(String king, String queen) {
@@ -80,6 +83,12 @@ public class FamilyTreeCreator {
 
         new Family.Of(headMan).wife(headWoman).family();
         return headMan;
+    }
+
+    private Person personFrom(String spouses) {
+        String name = spouses.split(Pattern.quote(":"))[0];
+        String gender = spouses.split(Pattern.quote(":"))[1];
+        return new Person(name, genderFrom(gender));
     }
 
     private void addTo(Person head, String mother, Person... familyMembers) {
@@ -118,17 +127,7 @@ public class FamilyTreeCreator {
         new Family.Of(husband).wife(wife).family();
     }
 
-    private Person personFrom(String spouses) {
-        String name = spouses.split(Pattern.quote(":"))[0];
-        String gender = spouses.split(Pattern.quote(":"))[1];
-        return new Person(name, genderFrom(gender));
-    }
-
     private Gender genderFrom(String gender) {
         return gender.equalsIgnoreCase("male") ? MALE : FEMALE;
-    }
-
-    private static Person person(String personName, Gender gender) {
-        return new Person(personName, gender);
     }
 }
